@@ -1,0 +1,131 @@
+﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SousaitTgModel.Store" Alias="Self" Provider="Devart.Data.MySql" ProviderManifestToken="MySQL, 5.1.73" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:devart="http://devart.com/schemas/edml/StorageSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SousaitTgEntitiesStoreContainer">
+          <EntitySet Name="clientes" EntityType="SousaitTgModel.Store.cliente" store:Type="Tables" Schema="sousait_tg" Table="cliente" />
+          <EntitySet Name="clientelogradouros" EntityType="SousaitTgModel.Store.clientelogradouro" store:Type="Tables" Schema="sousait_tg" Table="clientelogradouro" />
+          <EntitySet Name="logradouros" EntityType="SousaitTgModel.Store.logradouro" store:Type="Tables" Schema="sousait_tg" Table="logradouro" />
+        </EntityContainer>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="150" Collation="utf8_general_ci" />
+          <Property Name="Endereco" Type="varchar" Nullable="false" MaxLength="150" Collation="utf8_general_ci" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="150" Collation="utf8_general_ci" />
+        </EntityType>
+        <EntityType Name="clientelogradouro">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDCliente" Type="int" Nullable="false" />
+          <Property Name="IDLogradouro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="logradouro">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Endereco" Type="varchar" Nullable="false" MaxLength="150" Collation="utf8_general_ci" />
+          <Property Name="Bairro" Type="varchar" Nullable="false" MaxLength="150" Collation="utf8_general_ci" />
+          <Property Name="CEP" Type="varchar" Nullable="false" MaxLength="20" Collation="utf8_general_ci" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SousaitTgModel" Alias="Self" d4p1:ViewGeneration="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:devart="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" annotation:UseStrongSpatialTypes="false" xmlns:d4p1="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SousaitTgEntities" annotation:LazyLoadingEnabled="true" ed:Guid="d3873b8f-4efb-4eb9-b647-8bd668a58feb">
+          <EntitySet Name="Clientes" EntityType="SousaitTgModel.Cliente" />
+          <EntitySet Name="Clientelogradouros" EntityType="SousaitTgModel.Clientelogradouro" />
+          <EntitySet Name="Logradouros" EntityType="SousaitTgModel.Logradouro" />
+        </EntityContainer>
+        <EntityType Name="Cliente" ed:Guid="510fb42f-2e88-4130-845c-254c2ae66e94">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="true" ed:Guid="de965e39-0048-44c0-b5ee-2c2666e7d5ae" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="150" Unicode="true" ed:ValidateMaxLength="150" ed:ValidateRequired="true" ed:Guid="aa5eaafc-3f58-47bb-a2a9-b52622a42eb0" />
+          <Property Name="Endereco" Type="String" Nullable="false" MaxLength="150" Unicode="true" ed:ValidateMaxLength="150" ed:ValidateRequired="true" ed:Guid="bdfe8504-f47f-4200-a87b-95a6dbdb6521" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" Unicode="true" ed:ValidateMaxLength="150" ed:ValidateRequired="true" ed:Guid="f251b920-9f4d-40ff-b653-6b072eae3d68" />
+        </EntityType>
+        <EntityType Name="Clientelogradouro" ed:Guid="ae01f927-878c-466e-962b-e9f16f3f02c0">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="true" ed:Guid="01732728-3e5c-492d-854f-1189ebb37bd3" />
+          <Property Name="IDCliente" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="35a2f24c-42dd-4f0e-8c92-8caaf7913f3a" />
+          <Property Name="IDLogradouro" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="6c1ae642-7de0-45dc-8f1f-5daafdb49b4b" />
+        </EntityType>
+        <EntityType Name="Logradouro" ed:Guid="1c419c22-f78e-467d-9836-15bd2151c219">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="true" ed:Guid="368cc535-9179-4a06-8dff-8e958f9d4c33" />
+          <Property Name="Endereco" Type="String" Nullable="false" MaxLength="150" Unicode="true" ed:ValidateMaxLength="150" ed:ValidateRequired="true" ed:Guid="cb8f4b5c-faf7-4db1-a183-36f9cf6a94a0" />
+          <Property Name="Bairro" Type="String" Nullable="false" MaxLength="150" Unicode="true" ed:ValidateMaxLength="150" ed:ValidateRequired="true" ed:Guid="67110163-5938-4b56-9204-9437ff37dc86" />
+          <Property Name="CEP" Type="String" Nullable="false" MaxLength="20" Unicode="true" ed:ValidateMaxLength="20" ed:ValidateRequired="true" ed:Guid="1524c7b3-5ff3-4483-8e7c-6fd638de5414" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- MSL content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SousaitTgEntitiesStoreContainer" CdmEntityContainer="SousaitTgEntities">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="SousaitTgModel.Cliente">
+              <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientelogradouros">
+            <EntityTypeMapping TypeName="SousaitTgModel.Clientelogradouro">
+              <MappingFragment StoreEntitySet="clientelogradouros">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+                <ScalarProperty Name="IDLogradouro" ColumnName="IDLogradouro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logradouros">
+            <EntityTypeMapping TypeName="SousaitTgModel.Logradouro">
+              <MappingFragment StoreEntitySet="logradouros">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <edmx:Diagrams>
+      <Diagram Name="Main" />
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
